@@ -23,5 +23,5 @@ def process_csv(input_file_name, output_file_name):
                     radio_horizon = calculate_radio_horizon(altitude)
                     writer.writerow({'lat': lat, 'lon': lon, 'radio_horizon': radio_horizon})
 
-# Call the function with your csv file name
+
 process_csv('csv_raw.csv', 'output_horizons.csv')
