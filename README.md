@@ -11,4 +11,6 @@ This is continuing the work of many others including Markus Jonsson https://twit
 
 Follow me on Twiter/X: https://twitter.com/waynepmetcalf
 
-![alt text](https://pbs.twimg.com/media/GMX79IFXkAA0sN1?format=jpg&name=4096x4096) 
+![Wayne Metcalf 2024](https://pbs.twimg.com/media/GMX79IFXkAA0sN1?format=jpg&name=4096x4096) 
+
+Wayne Metcalf 2024
