@@ -35,6 +35,7 @@
         function parseCSV() {
             var files = document.getElementById('csv-input').files;
             var heatmapData = [];
+            var tolerance = 0.1; // Tolerance value (10%)
             for (var i = 0; i < files.length; i++) {
                 Papa.parse(files[i], {
                     header: false,
@@ -43,7 +44,28 @@
                         results.data.forEach(function(item) {
                             if (!isNaN(item[0]) && !isNaN(item[1]) && !isNaN(item[2])) {
                                 var latLng = new google.maps.LatLng(item[0], item[1]);
-                                heatmapData.push({location: latLng, weight: item[2]});
+                                var radioHorizon = item[2] * (1 + tolerance); // Add tolerance to the radio horizon
+                                // Create a circle with the radio horizon as the radius
+                                var circle = new google.maps.Circle({
+                                    center: latLng,
+                                    radius: radioHorizon * 1000, // Convert to meters
+                                    map: map,
+                                    visible: false // Hide the circle
+                                });
+                                // Get the bounds of the circle
+                                var bounds = circle.getBounds();
+                                // For each point in the heatmap data
+                                for (var j = 0; j < heatmapData.length; j++) {
+                                    // If the point is within the bounds of the circle
+                                    if (bounds.contains(heatmapData[j].location)) {
+                                        // Increase the weight of the point
+                                        heatmapData[j].weight++;
+                                    }
+                                }
+                                // Add the center of the circle to the heatmap data
+                                heatmapData.push({location: latLng, weight: 1});
+                                // Remove the circle from the map
+                                circle.setMap(null);
                             }
                         });
                         heatmap.setData(heatmapData);
@@ -56,3 +78,5 @@
     </script>
 </body>
 </html>
+
+  
