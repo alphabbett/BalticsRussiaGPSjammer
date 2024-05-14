@@ -1,7 +1,7 @@
 
 This is very much work in progress, so if you want to help, download the code give me your thoughts.  
 
-I am having trouble with the accuracy, the predicted output from this model doesn't quite fit the actual real life position of the GPS Jammer in Kaliningrad (which it's position is well known), so there is something wrong either my code or my data.
+I am having trouble with the accuracy, the predicted output from this model doesn't quite fit the likely suspected position of the GPS Jammer in Kaliningrad (which it's probable position is well known), so there is most likely something wrong either my code or my data.
 Any help would be appreciated.
 
 This file is written in Python, so in depth knowledge in Python, GPS and Radio Analysis is required, however, Google is everyone's friend.
